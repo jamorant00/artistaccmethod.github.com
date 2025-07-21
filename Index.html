@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Lor Tinky Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#000000" />
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
   </script>
+  <meta name="theme-color" content="#f9e000">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <img id="profilePic" class="pfp" src="lor_tinky.jpg" alt="Lor Tinky">
-    <h1 id="username">Lor Tinky</h1>
-    <p id="listeners">0 Monthly Listeners</p>
-    <a class="edit-link" href="edit.html">✏️ Edit Profile</a>
-    <a class="edit-link" href="wrapped.html">📊 Wrapped</a>
-  </div>
+<body style="background-color: #f9e000; font-family: 'Roboto', sans-serif;">
+  <header>
+    <img src="lor_tinky.jpg" alt="Lor Tinky" class="profile-pic">
+    <div class="header-info">
+      <h1 id="username">jamorant00</h1>
+      <p id="bio">
+        Lor Tinky is an experimental hip-hop artist from the underground scene, mixing chaotic beats with offbeat vocals and raw emotion. Known for viral tracks like "Titi Mama Tata" and "Like Tew Mump," his style blends satire with sincerity. His fanbase is growing fast on TikTok and YouTube Shorts, and his DIY aesthetic stands out in the digital rap era.
+      </p>
+    </div>
+  </header>
 
-  <script>
-    const name = localStorage.getItem("username");
-    const listeners = localStorage.getItem("listeners");
-    const pfp = localStorage.getItem("pfp");
+  <section class="stats">
+    <h2>Stats</h2>
+    <div><strong>Monthly Listeners:</strong> <span id="listeners">24,892</span></div>
+    <div><strong>Followers:</strong> <span id="followers">18,327</span></div>
+    <div><strong>Total Streams:</strong> <span id="streams">429,000</span></div>
+    <div><strong>Average Daily Streams:</strong> <span id="daily">2,145</span></div>
+    <div><strong>Earnings:</strong> $<span id="earnings">923.45</span></div>
+    <div><strong>Income (Monthly):</strong> $<span id="income">214.56</span></div>
+    <div><strong>Top City:</strong> <span id="topCity">Toronto, Canada</span></div>
+    <div><strong>Last 30 Days Revenue:</strong> $<span id="last30">189.60</span></div>
+  </section>
 
-    if (name) document.getElementById("username").textContent = name;
-    if (listeners) document.getElementById("listeners").textContent = `${listeners} Monthly Listeners`;
-    if (pfp) document.getElementById("profilePic").src = pfp;
-  </script>
+  <section class="highlights">
+    <h2>Highlights</h2>
+    <ul>
+      <li><strong>Top Song This Month:</strong> Like Tew Mump</li>
+      <li><strong>Most Viral Region:</strong> Ontario, CA</li>
+      <li><strong>Peak Daily Streams:</strong> 3,412</li>
+      <li><strong>Listener Growth:</strong> +12.3%</li>
+    </ul>
+  </section>
+
+  <section class="songs">
+    <h2>Song List</h2>
+    <ul>
+      <li><strong>Titi Mama Tata</strong> – 2:45 • 2023 • 174K streams</li>
+      <li><strong>Like Tew Mump</strong> – 2:58 • 2024 • 215K streams</li>
+      <li><strong>Like Tew Mump (Radio Version)</strong> – 3:12 • 2024 • 31K streams</li>
+      <li><strong>Demo Freestyle 1</strong> – 1:43 • 2022 • 8.5K streams</li>
+    </ul>
+  </section>
+
+  <nav class="nav-bar">
+    <a href="index.html" class="active">Home</a>
+    <a href="wrapped.html">Wrapped</a>
+    <a href="edit.html">Edit</a>
+  </nav>
+
+  <script src="script.js"></script>
 </body>
 </html>
