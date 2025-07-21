@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Edit Artist Info</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #f9e000;
@@ -16,7 +16,8 @@
       margin-top: 12px;
       font-weight: bold;
     }
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
@@ -39,34 +40,34 @@
   <h1>Edit Lor Tinky Profile</h1>
 
   <label>Username</label>
-  <input type="text" id="username" value="jamorant00">
+  <input type="text" id="username" />
 
   <label>Profile Bio</label>
-  <textarea id="bio" rows="4">Lor Tinky is an experimental hip-hop artist from the underground scene...</textarea>
+  <textarea id="bio" rows="4"></textarea>
 
   <label>Monthly Listeners</label>
-  <input type="number" id="listeners" value="24892">
+  <input type="number" id="listeners" />
 
   <label>Followers</label>
-  <input type="number" id="followers" value="18327">
+  <input type="number" id="followers" />
 
   <label>Total Streams</label>
-  <input type="number" id="streams" value="429000">
+  <input type="number" id="streams" />
 
   <label>Average Daily Streams</label>
-  <input type="number" id="daily" value="2145">
+  <input type="number" id="daily" />
 
   <label>Earnings</label>
-  <input type="number" id="earnings" value="923.45">
+  <input type="number" id="earnings" />
 
   <label>Monthly Income</label>
-  <input type="number" id="income" value="214.56">
+  <input type="number" id="income" />
 
   <label>Top City</label>
-  <input type="text" id="topCity" value="Toronto, Canada">
+  <input type="text" id="topCity" />
 
   <label>Last 30 Days Revenue</label>
-  <input type="number" id="last30" value="189.60">
+  <input type="number" id="last30" />
 
   <button onclick="saveChanges()">Save Changes</button>
 
@@ -77,8 +78,24 @@
   </nav>
 
   <script>
+    // On page load, fill inputs with saved values if any
+    window.onload = function () {
+      const fields = ['username', 'bio', 'listeners', 'followers', 'streams', 'daily', 'earnings', 'income', 'topCity', 'last30'];
+      fields.forEach(field => {
+        const saved = localStorage.getItem(field);
+        if (saved) {
+          document.getElementById(field).value = saved;
+        }
+      });
+    };
+
     function saveChanges() {
-      alert("✅ Info updated! (Mock save — add localStorage or backend to persist)");
+      const fields = ['username', 'bio', 'listeners', 'followers', 'streams', 'daily', 'earnings', 'income', 'topCity', 'last30'];
+      fields.forEach(field => {
+        const value = document.getElementById(field).value;
+        localStorage.setItem(field, value);
+      });
+      alert('✅ Info updated and saved!');
     }
   </script>
 </body>
