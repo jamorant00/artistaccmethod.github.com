@@ -1,50 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Edit Profile</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Edit Artist Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f9e000;
+      font-family: 'Roboto', sans-serif;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: orange;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Edit Profile</h1>
-    <input type="text" id="nameInput" placeholder="Username" />
-    <input type="number" id="listenerInput" placeholder="Monthly Listeners" />
-    <input type="file" id="pfpInput" accept="image/*" />
-    <hr />
-    <input type="number" id="streamInput" placeholder="Total Streams" />
-    <input type="text" id="topSongInput" placeholder="Top Song" />
-    <input type="text" id="growthInput" placeholder="Monthly Growth %" />
-    <button onclick="saveChanges()">Save</button>
-    <a class="edit-link" href="index.html">← Back</a>
-  </div>
+  <h1>Edit Lor Tinky Profile</h1>
+
+  <label>Username</label>
+  <input type="text" id="username" value="jamorant00">
+
+  <label>Profile Bio</label>
+  <textarea id="bio" rows="4">Lor Tinky is an experimental hip-hop artist from the underground scene...</textarea>
+
+  <label>Monthly Listeners</label>
+  <input type="number" id="listeners" value="24892">
+
+  <label>Followers</label>
+  <input type="number" id="followers" value="18327">
+
+  <label>Total Streams</label>
+  <input type="number" id="streams" value="429000">
+
+  <label>Average Daily Streams</label>
+  <input type="number" id="daily" value="2145">
+
+  <label>Earnings</label>
+  <input type="number" id="earnings" value="923.45">
+
+  <label>Monthly Income</label>
+  <input type="number" id="income" value="214.56">
+
+  <label>Top City</label>
+  <input type="text" id="topCity" value="Toronto, Canada">
+
+  <label>Last 30 Days Revenue</label>
+  <input type="number" id="last30" value="189.60">
+
+  <button onclick="saveChanges()">Save Changes</button>
+
+  <nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="wrapped.html">Wrapped</a>
+    <a href="edit.html" class="active">Edit</a>
+  </nav>
 
   <script>
     function saveChanges() {
-      const name = document.getElementById("nameInput").value;
-      const listeners = document.getElementById("listenerInput").value;
-      const streams = document.getElementById("streamInput").value;
-      const topSong = document.getElementById("topSongInput").value;
-      const growth = document.getElementById("growthInput").value;
-      const file = document.getElementById("pfpInput").files[0];
-
-      if (name) localStorage.setItem("username", name);
-      if (listeners) localStorage.setItem("listeners", listeners);
-      if (streams) localStorage.setItem("streams", streams);
-      if (topSong) localStorage.setItem("topSong", topSong);
-      if (growth) localStorage.setItem("growth", growth);
-
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          localStorage.setItem("pfp", reader.result);
-          alert("Saved! Go back to see changes.");
-        };
-        reader.readAsDataURL(file);
-      } else {
-        alert("Saved! Go back to see changes.");
-      }
+      alert("✅ Info updated! (Mock save — add localStorage or backend to persist)");
     }
   </script>
 </body>
